@@ -1,0 +1,6 @@
+streamlit==1.40.0
+transformers==4.44.2
+torch==2.4.1
+torchaudio==2.4.1
+scipy==1.13.1
+numpy==1.26.4

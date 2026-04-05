@@ -16,72 +16,34 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# -- Theme state ---------------------------------------------------------------
-if "dark_mode" not in st.session_state:
-    st.session_state.dark_mode = False
-
-# -- Theme colors --------------------------------------------------------------
-if st.session_state.dark_mode:
-    BG          = "#0a0a0a"
-    SURFACE     = "#141414"
-    SURFACE2    = "#111111"
-    BORDER      = "#2a2a2a"
-    TEXT        = "#f0f0f0"
-    TEXT_MUTED  = "#97C459"
-    TEXT_LABEL  = "#c0dd97"
-    PRIMARY     = "#97C459"
-    PRIMARY_TXT = "#0a0a0a"
-    ACCENT_BG   = "#141414"
-    PILL_BG     = "#1a1a1a"
-    PILL_TXT    = "#97C459"
-    CARD_BG     = "#111111"
-    INPUT_BG    = "#141414"
-    INPUT_BDR   = "#2a2a2a"
-    DIVIDER     = "#1f1f1f"
-    TAG_BG      = "#1a1a1a"
-    TAG_TXT     = "#97C459"
-    BTN_HOVER   = "#639922"
-    DL_TXT      = "#97C459"
-    DL_BDR      = "#639922"
-    DL_HOVER    = "#1a1a1a"
-    METRIC_BG   = "#141414"
-    METRIC_LBL  = "#97C459"
-    METRIC_VAL  = "#f0f0f0"
-    EXPANDER_BG = "#111111"
-    EXPANDER_BD = "#2a2a2a"
-    TOGGLE_BG   = "#1a1a1a"
-    TOGGLE_TXT  = "#97C459"
-else:
-    BG          = "#ffffff"
-    SURFACE     = "#eaf3de"
-    SURFACE2    = "#f4faf0"
-    BORDER      = "#c0dd97"
-    TEXT        = "#1a2e0f"
-    TEXT_MUTED  = "#3B6D11"
-    TEXT_LABEL  = "#27500A"
-    TEXT_LABEL  = "#27500A"
-    PRIMARY     = "#639922"
-    PRIMARY_TXT = "#ffffff"
-    ACCENT_BG   = "#eaf3de"
-    PILL_BG     = "#eaf3de"
-    PILL_TXT    = "#3B6D11"
-    CARD_BG     = "#ffffff"
-    INPUT_BG    = "#ffffff"
-    INPUT_BDR   = "#c0dd97"
-    DIVIDER     = "#e4f0d4"
-    TAG_BG      = "#eaf3de"
-    TAG_TXT     = "#3B6D11"
-    BTN_HOVER   = "#3B6D11"
-    DL_TXT      = "#3B6D11"
-    DL_BDR      = "#639922"
-    DL_HOVER    = "#eaf3de"
-    METRIC_BG   = "#eaf3de"
-    METRIC_LBL  = "#3B6D11"
-    METRIC_VAL  = "#1a2e0f"
-    EXPANDER_BG = "#ffffff"
-    EXPANDER_BD = "#c0dd97"
-    TOGGLE_BG   = "#eaf3de"
-    TOGGLE_TXT  = "#3B6D11"
+# -- Theme colors (Dark Mode Only) ------------------------------------------
+BG          = "#0a0a0a"
+SURFACE     = "#141414"
+SURFACE2    = "#111111"
+BORDER      = "#2a2a2a"
+TEXT        = "#f0f0f0"
+TEXT_MUTED  = "#97C459"
+TEXT_LABEL  = "#c0dd97"
+PRIMARY     = "#97C459"
+PRIMARY_TXT = "#0a0a0a"
+ACCENT_BG   = "#141414"
+PILL_BG     = "#1a1a1a"
+PILL_TXT    = "#97C459"
+CARD_BG     = "#111111"
+INPUT_BG    = "#141414"
+INPUT_BDR   = "#2a2a2a"
+DIVIDER     = "#1f1f1f"
+TAG_BG      = "#1a1a1a"
+TAG_TXT     = "#97C459"
+BTN_HOVER   = "#639922"
+DL_TXT      = "#97C459"
+DL_BDR      = "#639922"
+DL_HOVER    = "#1a1a1a"
+METRIC_BG   = "#141414"
+METRIC_LBL  = "#97C459"
+METRIC_VAL  = "#f0f0f0"
+EXPANDER_BG = "#111111"
+EXPANDER_BD = "#2a2a2a"
 
 # -- Inject CSS ----------------------------------------------------------------
 st.markdown(f"""
@@ -405,36 +367,13 @@ st.markdown(f"""
         font-family: 'Poppins', sans-serif;
     }}
 
-    .toggle-btn {{
-        display: inline-block;
-        font-size: 0.75rem;
-        font-weight: 600;
-        color: {TOGGLE_TXT};
-        background-color: {TOGGLE_BG};
-        border: 1px solid {BORDER};
-        border-radius: 20px;
-        padding: 4px 14px;
-        cursor: pointer;
-        font-family: 'Poppins', sans-serif;
-        text-decoration: none;
-    }}
 </style>
 """, unsafe_allow_html=True)
 
-# -- Top bar: title + theme toggle ---------------------------------------------
-title_col, toggle_col = st.columns([5, 1])
-
-with title_col:
-    st.markdown('<p class="page-label">LLM & Gen AI Lab — Experiment 6 — Task 3</p>', unsafe_allow_html=True)
-    st.markdown('<h1 class="page-title">MusicGen Studio</h1>', unsafe_allow_html=True)
-    st.markdown('<p class="page-sub">Generate instrumental music from a text description using AI</p>', unsafe_allow_html=True)
-
-with toggle_col:
-    st.markdown("<div style='margin-top:1.2rem;'></div>", unsafe_allow_html=True)
-    toggle_label = "Light" if st.session_state.dark_mode else "Dark"
-    if st.button(toggle_label, key="theme_toggle"):
-        st.session_state.dark_mode = not st.session_state.dark_mode
-        st.rerun()
+# -- Top bar: title --------- ------------------------------------------------
+st.markdown('<p class="page-label">LLM & Gen AI Lab — Experiment 6 — Task 3</p>', unsafe_allow_html=True)
+st.markdown('<h1 class="page-title">MusicGen Studio</h1>', unsafe_allow_html=True)
+st.markdown('<p class="page-sub">Generate instrumental music from a text description using AI</p>', unsafe_allow_html=True)
 
 st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
